@@ -120,9 +120,8 @@ class Item implements ItemInterface
         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><item turbo="' . $isTurboEnabled
             . '"></item>', LIBXML_NOERROR | LIBXML_ERR_NONE | LIBXML_ERR_FATAL);
 
-        $xml->addChild('title', $this->title);
         $xml->addChild('link', $this->link);
-        $xml->addCdataChild('turbo:content', $this->turboContent, 'http://turbo.yandex.ru');
+        $xml->addCdataChild('turbo:content', $this->turboContent);
 
         $xml->addChildWithValueChecking('pubDate', date(DATE_RSS, $this->pubDate));
         $xml->addChildWithValueChecking('category', $this->category);
